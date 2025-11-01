@@ -1,0 +1,35 @@
+--- Starting simulation with 6 processes using SharedMem ---
+--- DEADLOCK DEMO MODE ENABLED ---
+[P2] Started.
+[P2] DEADLOCK_MODE (P2): Acquiring Lock A...
+[P2] DEADLOCK_MODE (P2): Acquired Lock A. Simulating work...
+[P1] Started.
+[P0] Started.
+[P4] Started.
+[P5] Started.
+[P3] Started.
+[P3] DEADLOCK_MODE (P3): Acquiring Lock B...
+[P3] DEADLOCK_MODE (P3): Acquired Lock B. Simulating work...
+[P4] Sending 'Hello from P4' to P5
+[P1] Received 'Hello from P4' from P4, latency=0.0025s
+[P1] Sending 'Hello from P1' to P5
+[P4] Received 'Hello from P1' from P1, latency=0.0106s
+[P2] DEADLOCK_MODE (P2): Trying to acquire Lock B...
+[P0] Sending 'Hello from P0' to P2
+[P1] Received 'Hello from P0' from P0, latency=0.0010s
+[P3] DEADLOCK_MODE (P3): Trying to acquire Lock A...
+[P5] Sending 'Hello from P5' to P0
+[P4] Received 'Hello from P5' from P5, latency=0.0015s
+[P1] Sending 'Hello from P1' to P3
+[P4] Received 'Hello from P1' from P1, latency=0.0010s
+[P4] Sending 'Hello from P4' to P3
+[P5] Received 'Hello from P4' from P4, latency=0.0000s
+[P5] Sending 'Hello from P5' to P0
+[P1] Received 'Hello from P5' from P5, latency=0.0000s
+[P0] Sending 'Hello from P0' to P2
+[P1] Received 'Hello from P0' from P0, latency=0.0020s
+[P1] Stopping.
+[P0] Stopping.
+[P5] Stopping.
+[P4] Stopping.
+--- Simulation Stopped ---
