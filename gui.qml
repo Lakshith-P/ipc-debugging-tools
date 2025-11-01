@@ -155,30 +155,37 @@ ApplicationWindow {
             }
         }
 
-        // Log/Timeline view
-        GroupBox {
-            title: "Timeline"
-            Layout.fillWidth: true; Layout.fillHeight: true
-            ScrollView {
-                anchors.fill: parent
-                TextArea {
-                    id: timelineArea; readOnly: true
-                    text: backend.timeline // Bound to the backend's timeline property
-                    font.family: "Consolas"; font.pixelSize: 13; color: "#2c3e50"
-                    selectByMouse: true
-                    background: Rectangle { color: "white"; radius: 6 }
-                    
-                    // Connection to auto-scroll to the bottom when text is added
-                    Connections {
-                        target: backend
-                        function onTimelineChanged() {
-                            // Only auto-scroll if the user isn't actively scrolled up
-                            if (timelineArea.ScrollBar.vertical.position === 1.0 || !timelineArea.ScrollBar.vertical.active) {
-                                timelineArea.cursorPosition = timelineArea.length
-                                var sv = timelineArea.parent
-                                sv.contentItem.contentY = Math.max(0, sv.contentItem.contentHeight - sv.height)
-                            }
-                        }
+        // ... inside GroupBox { title: "Timeline" ...
+        TextArea {
+            id: timelineArea; readOnly: true
+            text: backend.timeline // Bound to the backend's timeline property
+
+            // --- New Terminal Style ---
+            font.family: "Consolas"; font.pixelSize: 13
+            color: "#33FF33" // Bright green text
+            selectionColor: "#3399FF" // Blue selection
+            selectedTextColor: "#FFFFFF"
+            // --- End New Style ---
+
+            selectByMouse: true
+
+            // --- New Background ---
+            background: Rectangle { 
+                color: "#1E1E1E"; // Dark grey/black background
+                radius: 6 
+            }
+            // --- End New Background ---
+
+            Connections {
+                target: backend
+                function onTimelineChanged() {
+                    // Only auto-scroll if the user isn't actively scrolled up
+                    if (timelineArea.ScrollBar.vertical.position === 1.0 || !timelineArea.ScrollBar.vertical.active) {
+                        timelineArea.cursorPosition = timelineArea.length
+                        var sv = timelineArea.parent
+                        sv.contentItem.contentY = Math.max(0, sv.contentItem.contentHeight - sv.height)
+                    }
+                }
                     }
                 }
             }
