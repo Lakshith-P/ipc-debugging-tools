@@ -2,6 +2,7 @@ import sys, time, random, psutil
 import multiprocessing as mp
 from collections import deque
 from typing import Optional, List, Deque
+from worker import process_worker
 
 from PySide6.QtCore import (
     QObject, Slot, Signal, Property, QRunnable, QThreadPool, QTimer
