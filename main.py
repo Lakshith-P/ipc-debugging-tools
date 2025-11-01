@@ -104,6 +104,7 @@ def process_worker(
 
 # --- Python-QML Bridge ---
 
+
 class Backend(QObject):
     """
     This class is exposed to QML. It handles user commands
