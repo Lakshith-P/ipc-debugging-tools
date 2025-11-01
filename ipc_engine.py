@@ -1,4 +1,4 @@
-# ipc_engine.py
+## ipc_engine.py
 import multiprocessing as mp, time
 from dataclasses import dataclass
 from typing import Optional
@@ -15,8 +15,6 @@ class IPCChannel:
     def recv(self, dst: int, diag=None) -> Optional[Message]: ...
     def status(self) -> str: ...
     def type_name(self) -> str: ...
-
-
 
 
 class PipeChannel(IPCChannel):
@@ -84,4 +82,6 @@ class SharedMemoryChannel(IPCChannel):
         with self.lock:
             length = len(self.buf[:].split(b'\x00',1)[0])
         return f"SharedMem: {length} bytes"
-    def type_name(self): return "SharedMem"
+    def type_name(self): return "SharedMem:"
+
+# end of ipc_engine.py
