@@ -39,3 +39,24 @@
 | **Step 3** | **Build the Core GUI (`gui.qml`):** Lay out the buttons, process view area, and log. Connect the `Start` button to the `backend.start` slot. |
 | **Step 4** | **Connect Backend to Frontend:** Implement the full `Signal`/`Slot` system. Feed the `TextArea` from the `log_q`. Implement the `onDataFlow` signal for animations and the `QTimer` for stats. |
 | **Step 5** | **Implement the Deadlock Feature:** Build the `diagnostics.py` module for automatic detection. Build the manual "Force Deadlock" demo with the extra locks and logic in `process_worker`. Connect this to the GUI to turn the boxes red. |
+
+## Contributing
+
+Small improvements and bug-fixes are welcome. If you'd like to contribute:
+
+- Fork the repo and create a feature branch for your changes.
+- Add tests (see `tests/`) for any behavioral changes.
+- Keep commits small and descriptive. We follow Conventional Commits.
+- Open a pull request describing the change and why it's useful.
+
+## Headless runner (CI / quick smoke tests)
+
+The project includes a lightweight headless runner that can start a short simulation without the GUI. This is useful for CI or smoke tests. See `headless_runner.py` which programmatically starts the backend, runs a short simulation, and writes a small log file.
+
+Example (local):
+
+1. Run a short headless session:
+
+	python headless_runner.py --procs 4 --seconds 5
+
+2. Check the generated log `ipcsync_log_<timestamp>.txt` for messages.
