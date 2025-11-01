@@ -15,7 +15,7 @@ from ipc_engine import (
 )
 from diagnostics import Diagnostics
 
-# --- Simulation Worker ---
+# --- simulator worker -- 
 # This function runs in a separate process
 def process_worker(
     pid: int,
@@ -104,12 +104,12 @@ def process_worker(
 
 # --- Python-QML Bridge ---
 
+
 class Backend(QObject):
     """
     This class is exposed to QML. It handles user commands
     and emits signals to update the UI.
     """
-    
     # --- Signals for QML ---
     # Signal(args) - 'dataFlow(int src, int dst)'
     dataFlow = Signal(int, int) 
@@ -165,7 +165,6 @@ class Backend(QObject):
         self.stats_timer.start(500) # Update stats every 500ms
 
     # --- QML Properties ---
-    
     @Property(bool, notify=runningChanged)
     def running(self):
         return self._running

@@ -16,6 +16,9 @@ class IPCChannel:
     def status(self) -> str: ...
     def type_name(self) -> str: ...
 
+
+
+
 class PipeChannel(IPCChannel):
     def __init__(self):
         self.in_, self.out_ = mp.Pipe(duplex=False)
