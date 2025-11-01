@@ -15,7 +15,7 @@ from ipc_engine import (
 )
 from diagnostics import Diagnostics
 
-# --- Simulation Worker ---
+# --- simulator worker -- 
 # This function runs in a separate process
 def process_worker(
     pid: int,
