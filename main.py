@@ -130,7 +130,6 @@ class Backend(QObject):
     channelTypeChanged = Signal()
     # --- NEW SIGNAL ---
     frozenProcessesChanged = Signal()
-    
 
     def __init__(self, parent=None):
         super().__init__(parent)
