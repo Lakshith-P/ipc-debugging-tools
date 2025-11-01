@@ -104,6 +104,7 @@ ApplicationWindow {
                     }
                 }
             }
+            
 
             // Repeater for the animated data flow arrows
             Repeater { 
