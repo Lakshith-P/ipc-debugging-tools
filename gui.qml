@@ -2,6 +2,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 
+
 ApplicationWindow {
     id: win; visible: true; width: 1150; height: 720
     title: "IPCSync Debugger"; color: "#f4f4f4"
