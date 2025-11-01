@@ -165,7 +165,6 @@ class Backend(QObject):
         self.stats_timer.start(500) # Update stats every 500ms
 
     # --- QML Properties ---
-    
     @Property(bool, notify=runningChanged)
     def running(self):
         return self._running
