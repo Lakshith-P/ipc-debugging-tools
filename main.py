@@ -110,7 +110,6 @@ class Backend(QObject):
     This class is exposed to QML. It handles user commands
     and emits signals to update the UI.
     """
-    
     # --- Signals for QML ---
     # Signal(args) - 'dataFlow(int src, int dst)'
     dataFlow = Signal(int, int) 
