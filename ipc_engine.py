@@ -83,5 +83,3 @@ class SharedMemoryChannel(IPCChannel):
             length = len(self.buf[:].split(b'\x00',1)[0])
         return f"SharedMem: {length} bytes"
     def type_name(self): return "SharedMem:"
-
-# end of ipc_engine.py
